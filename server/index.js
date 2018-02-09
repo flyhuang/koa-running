@@ -7,7 +7,7 @@ import config from "./config/environment";
 import { DEFAULT_TIMEZONE} from "./components/constants";
 import logger from "./components/logger";
 import middleware from "./middleware";
-import sequelize from "./components/db";
+import db from "./models/";
 import onerror from "./components/onerror";
 
 // set default timezone
@@ -26,7 +26,7 @@ app.use(route());
 // connect to mysql & start server
 (async() => {
     try {
-        // await sequelize.authenticate()
+        await db.sequelize.authenticate()
         logger.info('connected to mysql %s:%s', config.mysql.host, config.mysql.database);
     } catch (error) {
         logger.error(error);

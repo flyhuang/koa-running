@@ -14,7 +14,7 @@ export async function remove(ctx) {
 
 export async function get(ctx) {
     ctx.status = 200;
-    ctx.body = res
+    ctx.body = {}
 }
 
 export async function list(ctx) {
